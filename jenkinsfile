@@ -1,0 +1,16 @@
+pipeline {
+    agent { label 'mydocker' }
+
+    stages {
+        stage('Clone') {
+            steps {
+                git 'https://github.com/bhargavi2203/jenkins-python.git'
+            }
+        }
+        stage('Run') {
+            steps {
+                sh 'python3 your_script.py'
+            }
+        }
+    }
+}
